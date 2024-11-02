@@ -1,0 +1,205 @@
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+header .mainHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 50px;
+    background-color: var(--black);
+}
+
+header .mainHeader .menuIcon{
+    display: none;
+}
+
+header .mainHeader .closeMenuIcon{
+    display: none;
+}
+
+header .mainHeader .menu{
+    display: flex;
+    justify-content: stretch;
+    gap: 14%;
+    flex: 1;
+}
+
+header .user{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white);
+}
+
+header .user span{
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    background-color: var(--white);
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+header .user span img{
+    transition: filter .5s ease;
+}
+
+header .user span img:hover{
+    filter: brightness(.8);
+}
+
+header .user span a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+header .user span img{
+    border-radius: 100%;
+}
+
+header nav{
+    display: flex;
+}
+
+header nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+}
+
+header nav ul li{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    transition: transform .5s ease, opacity .5s ease;
+}
+
+.ativo{
+    transform: scale(1.1);
+}
+
+.nao-ativo{
+    opacity: .5;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+header nav ul li img{
+    width: 25px;
+}
+
+header section{
+    background-color: var(--red);
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    overflow: hidden;
+}
+
+header section .slideTracker{
+    display: flex;
+    margin-right: 0;
+    animation: slide 30s linear infinite;
+}
+
+@keyframes slide{
+    from{
+        transform: translateX(4%);
+    }
+    to{
+        transform: translateX(calc(-104% + (-12px)));
+    }
+}
+
+header section .music{
+    display: flex;
+    color: var(--white);
+    min-width: 200px;
+    flex-shrink: 0;
+}
+
+header section .music h4{
+    font-size: 40px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+}
+
+header section .music div{
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header section .music div p{
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 120px;
+}
+
+header section .music div .singer{
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+}
+
+@media (max-width: 900px){
+    header .mainHeader{
+        padding: 8px 32px;
+    }
+
+    header .mainHeader .menuIcon{
+        display: block;
+        width: 40px;
+        cursor: pointer;
+    }
+
+    header .mainHeader .menu .closeMenuIcon{
+        display: block;
+        width: 40px;
+        cursor: pointer;
+    }
+
+    header .mainHeader .menu{
+        display: none;
+        flex-direction: column;
+        justify-content: start;
+        padding: 32px 32px;
+        width: 70%;
+        height: 100svh;
+        gap: 32px;
+        position: absolute;
+        background-color: var(--black);
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    header .mainHeader .menu nav ul{
+        flex-direction: column;
+        align-items: start;
+    }
+
+    header .mainHeader .menu nav ul li{
+        font-size: 24px;
+    }
+}
