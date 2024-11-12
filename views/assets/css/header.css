@@ -119,10 +119,10 @@ header section .slideTracker{
 
 @keyframes slide{
     from{
-        transform: translateX(4%);
+        transform: translateX(0%);
     }
     to{
-        transform: translateX(calc(-104% + (-12px)));
+        transform: translateX(calc(-100% + (-12px)));
     }
 }
 

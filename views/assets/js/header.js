@@ -11,10 +11,12 @@ const menu = document.querySelector('.menu')
 
 menuIcon.addEventListener('click', () => {
     menu.style.display = 'flex'
+    document.body.style.overflow = 'hidden'
 })
 
 closeMenuIcon.addEventListener('click', () => {
     menu.style.display = 'none'
+    document.body.style.overflow = ''
 })
 
 // efeito blur nav
