@@ -27,7 +27,7 @@
     height: 100px;
     margin-top: -24px;
     z-index: 9999;
-    background-color: var(--white);
+    background-color: #fff;
     font-family: 'Helvetica', sans-serif;
     font-size: 32px;
     color: var(--blue);
@@ -385,8 +385,16 @@
 
     .artistas{
         flex-direction: column;
-        padding-top: 40px;
+        padding: 40px 0;
         text-align: center;
         gap: 32px;
+    }
+
+    .artistas .img-container{
+        display: none;
+    }
+
+    .artistas .img-container img{
+        display: none;
     }
 }

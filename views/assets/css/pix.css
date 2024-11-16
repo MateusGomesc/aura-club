@@ -1,0 +1,82 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 80px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.priceCard{
+    border: 1px solid var(--grey);
+    border-radius: 16px;
+    padding: 20px;
+    width: 400px;
+}
+
+.priceCard p{
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.priceCard h3{
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.codigo{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.codigo .qrCode{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#linkPix{
+    max-width: 300px;
+    text-align: justify;
+    overflow-wrap: break-word;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.btnRed{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    width: auto;
+}
+
+@media (max-width: 900px){
+    main section{
+        flex-direction: column;
+    }
+
+    .priceCard{
+        width: 100% ;
+    }
+
+    .codigo .qrCode{
+        flex-direction: column;
+    }
+}

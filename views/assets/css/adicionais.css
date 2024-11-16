@@ -1,0 +1,117 @@
+main{
+    display: flex;
+    justify-content: start;
+    padding: 60px 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgEvent{
+    background-image: url("../img/bannerEvento.jpg");
+    width: 560px;
+    height: 360px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 16px;
+    margin-right: 24px;
+    flex-shrink: 0;
+}
+
+.details{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.details h3{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.eventInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: baseline;
+}
+
+.eventInfo div{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.eventInfo div img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.light{
+    font-weight: 300;
+}
+
+.tickets{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 60px;
+}
+
+.tickets .ticket{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 250px;
+    border: 1px solid var(--grey);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.tickets .ticket .add{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btnAdd{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+    outline: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: auto;
+}
+
+.nao-ativo{
+    opacity: .8;
+}
+
+@media (max-width: 900px){
+    main{
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .imgEvent{
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .details{
+        padding: 20px;
+    }
+
+    .tickets .ticket{
+        width: 100%;
+    }
+}

@@ -1,0 +1,199 @@
+main{
+    display: flex;
+    justify-content: start;
+    padding: 60px 50px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.details{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.details h3{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.imgEvent{
+    background-image: url("../img/bannerEvento.jpg");
+    width: 560px;
+    height: 360px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 16px;
+    margin-right: 24px;
+    flex-shrink: 0;
+}
+
+.info{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin-bottom: 34px;
+}
+
+.info .eventInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: baseline;
+}
+
+.info .eventInfo div{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info .eventInfo div img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.info .ticket{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    border: 1px solid var(--grey);
+    border-radius: 16px;
+    width: 320px;
+    padding: 18px 18px;
+    height: auto;
+}
+
+.info .ticket .price p{
+   font-weight: 300;
+   font-family: inherit;
+}
+
+.info .ticket h3{
+    font-weight: normal;
+    font-family: inherit;
+    margin-bottom: 0;
+}
+
+.info .ticket .count{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info .ticket .count p{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.info .ticket .count img{
+    cursor: pointer;
+}
+
+.subTitle{
+    font-weight: 600;
+}
+
+.artistas{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 18px 0;
+    gap: 14px;
+}
+
+.artistas .card{
+    display: flex;
+    gap: 8px;
+    width: 300px;
+    border: 1px solid var(--grey);
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.artistas .card img{
+    border-radius: 8px;
+}
+
+.artistas .card div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.artistas .card div .name{
+    font-size: 16px;
+}
+
+.artistas .card div .style{
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.regras{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+    padding: 14px 0;
+    width: 100%;
+}
+
+.regras div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+}
+
+.regras div img{
+    cursor: pointer;
+}
+
+.regras .information{
+    margin: 10px 40px;
+    display: none;
+    max-width: 400px;
+}
+
+@media (max-width: 900px){
+    main{
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .imgEvent{
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .details{
+        padding: 20px;
+    }
+
+    .info{
+        align-items: start;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .artistas .card{
+        width: 100%;
+    }
+
+    .info .ticket{
+        width: 100%;
+    }
+
+    .regras .information{
+        max-width: 250px;
+    }
+}

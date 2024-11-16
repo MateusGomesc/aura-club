@@ -1,0 +1,113 @@
+main{
+    padding: 70px 200px;
+    display: flex;
+    gap: 74px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nota{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 450px;
+}
+
+.nota h3{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: 500;
+}
+
+.nota .table{
+    border: 1px solid var(--grey);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nota .item, .nota .total{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nota .total{
+    border-top: 1px solid var(--grey);
+    padding-top: 18px;
+}
+
+.nota .price{
+    font-weight: 300;
+}
+
+.dropdown{
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+    width: 360px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dropdown .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.dropdown .head img{
+    cursor: pointer;
+}
+
+.dropdown .pagamentos{
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+}
+
+.dropdown .pagamentos .metodo div{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.dropdown .pagamentos .metodo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown .pagamentos .metodo input{
+    width: 25px;
+    height: 25px;
+    accent-color: var(--red);
+}
+
+@media (max-width: 900px){
+    main{
+        flex-direction: column;
+        padding: 20px 40px;
+    }
+
+    .nota{
+        width: 100%;
+    }
+
+    .nota .table{
+        width: 100%;
+    }
+
+    .dropdown{
+        width: 100%;
+    }
+}

@@ -15,7 +15,7 @@
                         <a href="../home">Home</a>
                     </li>
                     <li>
-                        <a href="">Festas</a>
+                        <a href="../Festas/">Festas</a>
                     </li>
                     <li>
                         <a href="">Galeria de fotos</a>

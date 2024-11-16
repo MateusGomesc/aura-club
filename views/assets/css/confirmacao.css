@@ -1,0 +1,123 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+    flex-direction: column;
+    padding: 80px 20px;
+}
+
+main h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+}
+
+main section{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nota{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 450px;
+}
+
+.nota .table{
+    border: 1px solid var(--grey);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nota .item, .nota .total{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nota .total{
+    border-top: 1px solid var(--grey);
+    padding-top: 18px;
+}
+
+.nota .price{
+    font-weight: 300;
+}
+
+.btnRed{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.info h3{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.eventInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: baseline;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.eventInfo div{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.eventInfo div img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+@media (max-width: 900px){
+    main{
+        text-align: center;
+    }
+
+    main section{
+        flex-direction: column;
+    }
+
+    .nota{
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .nota .table{
+        width: 100%;
+    }
+
+    .eventInfo{
+        align-items: center;
+    }
+
+    .eventInfo div{
+        width: 50%;
+    }
+}
