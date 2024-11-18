@@ -2,7 +2,7 @@ main{
     padding: 70px 200px;
     display: flex;
     gap: 74px;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 

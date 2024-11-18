@@ -71,6 +71,7 @@
     border-radius: 16px;
     cursor: pointer;
     transition: box-shadow .5s ease;
+    text-decoration: none;
 }
 
 .vip{
@@ -99,6 +100,7 @@
     border-radius: 16px;
     cursor: pointer;
     transition: box-shadow .5s ease;
+    text-decoration: none;
 }
 
 .btnBlue{
@@ -114,6 +116,7 @@
     cursor: pointer;
     transition: box-shadow .5s ease;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .btnRed:hover{

@@ -1,9 +1,9 @@
 main{
     display: flex;
-    justify-content: start;
+    align-items: start;
     padding: 60px 50px;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: safe;
     justify-content: center;
 }
 

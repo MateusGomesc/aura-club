@@ -22,12 +22,12 @@
         <section class="event">
             <h2 class="titleSection">Viva a <span class="red">Noite</span>, Sinta a <span class="red">Magia</span>!</h2>
             <p class="subtitleSection">Um calendário de festa para quem sabe aproveitar a vida</p>
-            <button class="btnRed">Eventos em aberto</button>
+            <a class="btnRed" href="../Festas/">Eventos em aberto</a>
         </section>
         <section class="vip">
             <h2 class="titleSection golden">VIP Experience</h2>
             <p class="subtitleSection">Descubra o verdadeiro significado de exclusividade</p>
-            <button class="btnGolden">Seja vip</button>
+            <a class="btnGolden" href="">Seja vip</a>
             <div class="photos">
                 <div class="bar">openbar</div>
                 <div class="food">openfood</div>
@@ -109,7 +109,7 @@
             <div class="text">
                 <h2 class="titleSectionBlue">Momentos Inesquecíveis</h2>
                 <p class="subtitleSectionBlue">Reviva as Noites Mágicas da Aura Club</p>
-                <button class="btnBlue">galeria de fotos</button>
+                <a class="btnBlue" href="../Galeria/">galeria de fotos</a>
             </div>
         </section>
         <section class="clubInsider">
@@ -118,14 +118,14 @@
                 <h2 class="titleSection white">Club</h2>
                 <h2 class="titleSection"><span class="red">Insiders</span></h2>
                 <p class="subtitleSection white">Conecte-se com a elite da noite</p>
-                <button class="btnRed">Busque por pessoas</button>
+                <a class="btnRed" href="">Busque por pessoas</a>
             </div>
         </section>
         <section class="artistas">
             <div class="text">
                 <h2 class="titleSectionBlue">Nossos artistas</h2>
                 <p class="subtitleSectionBlue">Conheça os Talentos que Fazem a Magia Acontecer</p>
-                <button class="btnBlue">conheça-os</button>
+                <a class="btnBlue" href="">conheça-os</a>
             </div>
             <div class="img-container">
                 <img src="../assets/img/dj.svg" alt="Dj em uma festa">
