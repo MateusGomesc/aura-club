@@ -14,13 +14,12 @@
         <p>Próximas festas:</p>
         <div class="container">
             <a href="../Evento/" class="card">
-                <img src="../assets/img/bannerEvento.jpg" alt="Banner do Evento">
                 <div class="cardContent">
                     <h6>Night Club - Alok and Calvin Harris</h6>
                     <div class="info">
                         <div class="item">
                             <img src="../assets/img/calenderIcon.png" alt="Ícone de calendário">
-                            <p>Sábado, 19 de Outubro</p>
+                            <p>Sábado, 19/10</p>
                         </div>
                         <div class="item">
                             <img src="../assets/img/clockIcon.png" alt="Ícone de calendário">

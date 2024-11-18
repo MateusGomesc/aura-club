@@ -18,7 +18,7 @@
                         <a href="../Festas/">Festas</a>
                     </li>
                     <li>
-                        <a href="">Galeria de fotos</a>
+                        <a href="../Galeria/">Galeria de fotos</a>
                     </li>
                     <li>
                         <a href="">Club Insiders</a>

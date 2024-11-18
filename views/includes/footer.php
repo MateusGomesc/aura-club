@@ -3,12 +3,12 @@
         <img src="../assets/img/horizontal-branco.svg" alt="Logo Aura Club Branca Horizontal">
         <section>
             <h4>Divirta-se!</h4>
-            <a href="">Festas em aberto</a>
+            <a href="../Festas/">Festas em aberto</a>
         </section>
         <section>
             <h4>Socialize!</h4>
             <a href="">Club Insiders</a>
-            <a href="">Galeria de fotos</a>
+            <a href="../Galeria/">Galeria de fotos</a>
         </section>
         <section>
             <h4>Sinta o poder!</h4>

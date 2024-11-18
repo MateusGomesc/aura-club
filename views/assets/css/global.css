@@ -2,10 +2,13 @@
 
 :root{
     --black: #0D0D0D;
+    --black-opacity: rgb(0, 0, 0, .5);
     --white: #F5F5F5;
     --red: #AD0909;
+    --red-opacity: rgb(173, 9, 9, .5);
     --yellow: #B8860B;
     --blue: #252440;
+    --blue-opacity: rgb(37, 36, 64, .7);
     --grey: #58585B;
 }
 
