@@ -9,7 +9,7 @@ function input($name, $label, $placeholder = '', $type = 'text', $maxLength = ''
     echo "
         <div class='inputContainer'>
             <label for='$name'>$label</label>
-            <input type='$type' name='$name' id='$name' placeholder='$placeholder'  $maxLengthAttr $minAttr $maxAttr $onFocusAttr >
+            <input type='$type' name='$name' id='$name' placeholder='$placeholder'  $maxLengthAttr $minAttr $maxAttr $onFocusAttr required>
         </div>
     ";
 }

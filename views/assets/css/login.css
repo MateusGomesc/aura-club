@@ -1,0 +1,118 @@
+
+/* Container centralizado */
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  padding: 20px;
+}
+
+/* Moldura ao redor */
+.login-wrapper {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid var(--grey);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 200px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Logo à esquerda */
+.logo {
+  margin-right: 0; /* Removendo a margem à direita */
+  margin-left: 0;  /* Removendo a margem à esquerda, se necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 210px;
+  margin-left: 200;  /* Ajuste aqui se necessário para aproximar da borda esquerda */
+}
+
+
+/* Formulários */
+form {
+  flex: 1;
+}
+
+form label {
+  margin-bottom: 5px;
+  display: block;
+  font-weight: normal;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+/* Alinha checkbox e texto na mesma linha */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.checkbox-label input {
+  margin-right: 5px;
+}
+
+
+.btnRed{
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
+  color: var(--white);
+  background-color: var(--red);
+  border: none;
+  outline: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.btnGrey{
+  font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: var(--white);
+    background-color: var(--grey);
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.forgotPassword{
+  text-decoration: underline;
+  color: var(--grey);
+}
+
+@media (max-width: 560px){
+  .btnRed{
+    width: 100%;
+  }
+
+  .btnGrey{
+    width: 100%;
+  }
+}

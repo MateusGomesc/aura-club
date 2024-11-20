@@ -1,0 +1,130 @@
+/* Container centralizado */
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid var(--grey);
+  font-family: 'Montserrat', sans-serif;
+  margin: 50px;
+}
+
+.text ol li{
+  max-width: 400px;
+  text-wrap: wrap;
+}
+
+/* Logo à esquerda */
+.logo {
+  margin-right: 0; /* Removendo a margem à direita */
+  margin-left: 0; /* Removendo a margem à esquerda, se necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 210px;
+  margin-left: 200; /* Ajuste aqui se necessário para aproximar da borda esquerda */
+}
+
+/* Formulários */
+form {
+  flex: 1;
+}
+
+form label {
+  margin-bottom: 5px;
+  display: block;
+  font-weight: normal;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.form-options a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+/* Alinha checkbox e texto na mesma linha */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.checkbox-label input {
+  margin-right: 5px;
+}
+
+/* Botões lado a lado */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-group .btn {
+  width: 100%; /* Ajuste a largura para ocupar toda a área disponível */
+  padding: 50px 50px; /* Aumentando o padding para deixar o botão maior */
+  font-size: 30px; /* Aumentando o tamanho da fonte */
+  border: none;
+  border-radius: 25px; /* Borda mais arredondada */
+  cursor: pointer;
+}
+
+/* Botão "Recuperar" com fundo vermelho */
+.btn.recover {
+  background-color: #ad0909; /* Cor de fundo vermelha */
+  color: white; /* Cor do texto branca */
+  border-radius: 25px; /* Borda mais arredondada */
+}
+
+/* Garantir que as frases da lista fiquem em uma linha, mantendo os números */
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside; /* Faz com que os números fiquem dentro da lista */
+}
+
+ol li {
+  white-space: nowrap; /* Impede quebras de linha dentro dos itens */
+  margin-bottom: 10px; /* Adiciona um espaço entre as frases */
+}
+
+.btnRed {
+  font-family: "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
+  color: var(--white);
+  background-color: var(--red);
+  border: none;
+  outline: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+}
+
+@media (max-width: 590px){
+  .center-container{
+    margin: 20px;
+  }
+
+  .btnRed{
+    width: 100%;
+  }
+}
