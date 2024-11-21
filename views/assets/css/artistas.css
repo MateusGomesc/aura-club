@@ -1,0 +1,38 @@
+.titleSection{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 60px;
+    margin-bottom: 12px;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--blue);
+}
+
+.container{
+    width: 100%;
+    padding: 24px 80px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card{
+    background-image: url("../img/alok.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 200px;
+    border-radius: 8px;
+    color: var(--white);
+    position: relative;
+}
+
+.card p{
+    position: absolute;
+    bottom: 0;
+    background-color: var(--black-opacity);
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    padding: 4px 0;
+}

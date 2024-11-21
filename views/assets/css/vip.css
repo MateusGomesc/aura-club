@@ -1,0 +1,151 @@
+.titleSection{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 60px;
+    margin-bottom: 12px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+main p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.photos{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    font-size: 56px;
+    text-transform: uppercase;
+    margin-top: -8px;
+}
+
+.photos div{
+    height: 720px;
+    width: 34%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.bar{
+    background-image: url("../img/bar.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.food{
+    background-image: url("../img/food.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.vendas{
+    background-image: url("../img/vendas.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.vipBanner{
+    background-color: var(--yellow);
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -8px;
+    z-index: 1;
+}
+
+.vipBanner span{
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+.vipBanner h4{
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    color: var(--white);
+    font-size: 48px;
+}
+
+.vipBanner .slideVip{
+    display: flex;
+    margin-right: 0;
+    animation: slide 30s linear infinite;
+}
+
+@keyframes slide{
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.btnRed{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow .5s ease;
+    text-decoration: none;
+}
+
+.btnRed:hover{
+    box-shadow: -1px -1px 15px var(--red),
+                1px 1px 15px var(--red);
+}
+
+.btnContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 64px 0;
+    gap: 32px;
+    padding: 0 20px;
+}
+
+@media (max-width: 660px){
+    .photos{
+        flex-direction: column;
+        font-size: 48px;
+    }
+
+    .photos div{
+        width: 100%;
+    }
+
+    .btnRed{
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px){
+    .photos{
+        font-size: 32px;
+    }
+
+    .photos div{
+        height: 520px;
+    }
+}
