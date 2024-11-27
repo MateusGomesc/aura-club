@@ -53,7 +53,7 @@
                 <div>
                     <?php
                         input('mes', '', 'Mês', 'text', '2', '1', '12', 'flipCard(false)');
-                        input('ano', '', 'Ano', 'text', '4', '2024', 'flipCard(false)')
+                        input('ano', '', 'Ano', 'text', '4', '2024', '', 'flipCard(false)');
                     ?>
                 </div>
             </div>
