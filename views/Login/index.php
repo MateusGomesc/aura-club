@@ -1,5 +1,21 @@
 <?php
   include "../includes/input.php";
+  require "../includes/modal.php";
+
+  session_start();
+
+  // modal settings
+  $toggleModal = '';
+  $colorModal = '';
+  $info = '';
+
+  if(!empty($_SESSION['success'])){
+    $toggleModal = 'active';
+    $colorModal = 'var(--green)';
+    $info = $_SESSION['success'];
+  }
+
+  session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,6 +30,7 @@
 </head>
 
 <body>
+  <?php modal($toggleModal, $colorModal, $info) ?>
   <?php include "../includes/header.php"; ?>
   <div class="m-5">
     <div class="row align-items-center justify-content-center">

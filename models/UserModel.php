@@ -1,5 +1,10 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/../vendor/autoload.php';
+
 require_once "Conexao.php";
 require_once "User.php";
 
@@ -24,7 +29,39 @@ class UserModel{
             $stmt->bindValue(12, $user->getUf());
             $stmt->bindValue(13, $user->getBairro());
             $stmt->bindValue(14, $user->getCep());
-            return $stmt->execute();
+
+            if($stmt->execute()){
+                // sending welcome mail
+                $mail = new PHPMailer(true);
+
+                try{
+                    // configure mail
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'auraclub.suporte@gmail.com';
+                    $mail->Password = 'dfvdgdtzfhtqyeaa';
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                    $mail->Port = 465;
+
+                    $mail->setFrom('auraclub.suporte@gmail.com', 'Aura Club');
+                    $mail->addAddress($user->getEmail(), $user->getNome());
+
+                    $html = file_get_contents(__DIR__ . '/../views/assets/email/welcome.html');
+
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Seja bem-vindo (a) a Aura Club!';
+                    $mail->Body = $html;
+                    $mail->AltBody = 'Olá, obrigado por se cadastrar no nosso sistema! Estamos animados para ter você conosco.';
+
+                    $mail->send();
+
+                    return true;
+                }
+                catch(Exception $error){
+                    $_SESSION['error'] = $mail->ErrorInfo;
+                }
+            }
         }
         catch(PDOException $error){
             $_SESSION['error'] = $error->getMessage();

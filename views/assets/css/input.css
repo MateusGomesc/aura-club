@@ -27,6 +27,10 @@
     border-radius: 8px;
 }
 
+.inputContainer input::placeholder{
+    opacity: .5;
+}
+
 .inputContainer input::-webkit-inner-spin-button,
 .inputContainer input::-webkit-outer-spin-button{
     -webkit-appearance: none;

@@ -1,6 +1,6 @@
 <?php
 
-require_once "../models/UserModel.php";
+require_once __DIR__ . "/../models/UserModel.php";
 
 class UserController{
     private $model;
@@ -14,34 +14,35 @@ class UserController{
     }
 
     public function add(User $user, $passwordConfirm){
+        
         // CPF validation
         if(!$this->cpfValidation($user->getCpf())){
-            return;
+            return false;
         }
 
         // Email validation
-        if(filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)){
+        if(!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)){
             $_SESSION['error'] = 'Email inválido!';
-            return;
+            return false;
         }
 
         // Number validation
         if(!$this->numberValidation($user->getTelefone())){
             $_SESSION['error'] = 'Telefone inválido!';
-            return;
+            return false;
         }
 
         // Instagram validation
-        $regex = '/^[a-zA-Z0-9](?:[a-zA-Z0-9._]{0,28}[a-zA-Z0-9])?$/';
+        $regex = '/^@[a-zA-Z0-9._]{1,30}$/';
         if(!preg_match($regex, $user->getInstagram())){
             $_SESSION['error'] = 'Instagram inválido!';
-            return;
+            return false;
         }
 
         // Match password
         if($user->getSenha() !== $passwordConfirm){
             $_SESSION['error'] = 'Senhas não conferem!';
-            return;
+            return false;
         }
 
         return $this->model->create($user);
@@ -76,7 +77,22 @@ class UserController{
     }
 
     public function editPassword(string $oldPassword, string $newPassword, string $confirmNewPassword, int $id){
+        $user = $this->model->findId($id);
 
+        // Verify old password
+        if(md5($oldPassword) !== $user->getSenha()){
+            $_SESSION['error'] = 'Senha antiga errada!';
+            return;
+        }
+
+        // Match new password
+        if($newPassword !== $confirmNewPassword){
+            $_SESSION['error'] = 'Senhas novas não conferem!';
+            return;
+        }
+
+        $user->setSenha($newPassword);
+        return $this->model->updatePassword($user);
     }
 
     public function findId($id){

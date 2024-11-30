@@ -1,7 +1,5 @@
 <?php
 
-require_once "./Data.php";
-
 class User{
     private int $id_user;
     private string $nome;

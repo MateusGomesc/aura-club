@@ -1,16 +1,63 @@
 <?php
-  include "../includes/input.php";
+    include "../includes/input.php";
+    require "../includes/modal.php";
+
+    session_start();
+
+    // modal configuration
+    $toggleModal = '';
+    $colorModal = '';
+    $info = '';
+
+    if(isset($_POST) && !empty($_POST)){
+        require_once "../../controllers/UserController.php";
+
+        $user = new User();
+        $user->setNome(htmlspecialchars($_POST['nome']));
+        $user->setEmail(htmlspecialchars($_POST['email']));
+        $user->setCpf(htmlspecialchars($_POST['cpf']));
+        $user->setTelefone(htmlspecialchars($_POST['telefone']));
+        $user->setData_nasc(htmlspecialchars($_POST['data-nascimento']));
+        $user->setInstagram(htmlspecialchars($_POST['instagram']));
+        $user->setRua(htmlspecialchars($_POST['rua']));
+        $user->setNum(htmlspecialchars($_POST['numero']));
+        $user->setBairro(htmlspecialchars($_POST['bairro']));
+        $user->setUf(htmlspecialchars($_POST['estado']));
+        $user->setCidade(htmlspecialchars($_POST['cidade']));
+        $user->setCep(htmlspecialchars($_POST['cep']));
+        $user->setSenha(md5($_POST['senha']));
+        $user->setImagem('');
+
+        $UserController = new UserController();
+        $res = $UserController->add($user, md5($_POST['senha-confirme']));
+
+        if($res){
+            header('location: ../Login');
+            $_SESSION['success'] = 'Usuário criado com sucesso!';
+            exit();
+        }
+    }
+    
+    if(!empty($_SESSION['error'])){
+        $toggleModal = 'active';
+        $colorModal = 'var(--red)';
+        $info = $_SESSION['error'];
+    }
+
+    session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <?php include "../includes/head.php"; ?>
-    <title>Aura Club - Cadastro</title>
+    <title>Cadastro</title>
     <!-- Link para o CSS personalizado -->
     <link rel="stylesheet" href="../assets/css/cadastro.css">
     <link rel="stylesheet" href="../assets/css/input.css">
 </head>
 <body>
+    <?php modal($toggleModal, $colorModal, $info) ?>
+    
     <?php include "../includes/header.php"; ?>
     <main>
         <!-- Coluna da logo -->
@@ -27,6 +74,7 @@
             <?php input('data-nascimento', 'Sua data de nascimento:', '', 'date'); ?>
             <?php input('instagram', 'Seu instagram:', '@auraclub', 'text'); ?>
             <h2 class="title">Endereço:</h2>
+            <?php input('cep', 'Seu cep:', '0000000', 'text'); ?>
             <?php input('rua', 'Sua rua:', 'Rua Brasil', 'text'); ?>
             <div class="row">
                 <div class="col">
@@ -54,5 +102,6 @@
 
     <!-- Script do Bootstrap -->
     <?php include "../includes/scripts.php"; ?>
+    <script src="../assets/js/cadastro.js"></script>
 </body>
 </html>
