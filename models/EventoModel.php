@@ -65,4 +65,30 @@ class EventoModel{
             $_SESSION['error'] = $error->getMessage();
         }
     }
+
+    public function fullInformation($id){
+        require_once __DIR__ . "/EventoArtistaModel.php";
+        require_once __DIR__ . "/ArtistaModel.php";
+        require_once __DIR__ . "/ProdutoModel.php";
+
+        $produtoModel = new ProdutoModel();
+        $eventoArtistaModel = new EventoArtistaModel();
+        $artistaModel = new ArtistaModel();
+
+        $evento = $this->findId($id);
+        $ticket = $produtoModel->findId($evento->getId_produto());
+        $artistasId = $eventoArtistaModel->findAll($id);
+        $artistas = [];
+        
+        foreach($artistasId as $artistaId){
+            $artista = $artistaModel->findId($artistaId->getId_artista());
+            $artistas[] = $artista;
+        }
+
+        return [
+            "evento" => $evento,
+            "ticket" => $ticket,
+            "artistas" => $artistas
+        ];
+    }
 }

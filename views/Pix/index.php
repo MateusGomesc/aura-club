@@ -22,7 +22,10 @@
                         <p id="info">Clique no texto para copiar</p>
                     </div>
                 </div>
-                <button class="btnRed">Confirmar pagamento</button>
+                <form action="" method="post">
+                    <input type="hidden" name="">
+                    <button class="btnRed">Confirmar pagamento</button>
+                </form>
             </div>
         </section>
     </main>

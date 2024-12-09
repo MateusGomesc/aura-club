@@ -16,15 +16,43 @@ btn.addEventListener('click', () => {
 const minus = document.querySelector('.minus')
 const plus = document.querySelector('.plus')
 const count = document.querySelector('.number')
+const price = parseFloat(document.querySelector('.ticket .price h3').innerHTML.replace('R$', ''))
+const totalPrice = document.querySelector('.cart .price h3')
 
 minus.addEventListener('click', () => {
-    if(Number(count.innerHTML) > 1){
-        count.innerHTML = Number(count.innerHTML) - 1
+    if(Number(count.value) > 1){
+        count.value = Number(count.value) - 1
+        totalPrice.innerHTML = 'R$' + (parseFloat(totalPrice.innerHTML.replace('R$', '')) - price).toFixed(2).replace('.', ',')
     }
 })
 
 plus.addEventListener('click', () => {
-    if(Number(count.innerHTML) < 10){
-        count.innerHTML = Number(count.innerHTML) + 1
+    if(Number(count.value) < 10){
+        count.value = Number(count.value) + 1
+        totalPrice.innerHTML = 'R$' + (parseFloat(totalPrice.innerHTML.replace('R$', '')) + price).toFixed(2).replace('.', ',')
     }
+})
+
+// save information on session
+const btnContinue = document.querySelector('.btnRed')
+const name = document.querySelector('.details h3')
+const date = document.querySelector('#data')
+const hour = document.querySelector('#hora')
+
+btnContinue.addEventListener('click', () => {
+    const CartPrice = parseFloat(document.querySelector('.cart .price h3').innerHTML.replace('R$', ''))
+    sessionStorage.setItem('quantity', count.value)
+    sessionStorage.setItem('name', name.innerHTML)
+    sessionStorage.setItem('hour', hour.innerHTML)
+    sessionStorage.setItem('date', date.innerHTML)
+    sessionStorage.setItem('valorTotal', CartPrice)
+    sessionStorage.setItem('ticketPrice', price)
+    let add = []
+    for(let i=0; i < count.value; i++){
+        add.push({
+            bar: false,
+            food: false
+        })
+    }
+    sessionStorage.setItem('adicionais', JSON.stringify(add))
 })

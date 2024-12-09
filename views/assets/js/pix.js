@@ -8,3 +8,11 @@ link.addEventListener('click', () => {
         document.getElementById('info').innerHTML = 'Erro ao copiar o texto'
     })
 })
+
+// insert data into page
+const TotalPrice = document.querySelector('.priceCard h3')
+const price = parseFloat(sessionStorage.getItem('valorTotal'))
+
+document.addEventListener('DOMContentLoaded', () => {
+    TotalPrice.innerHTML = 'R$' + price.toFixed(2).replace('.', ',')
+})

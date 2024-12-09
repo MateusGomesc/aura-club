@@ -1,3 +1,8 @@
+<?php
+    require_once __DIR__ . '/../../controllers/ArtistaController.php';
+    $ArtistaController = new ArtistaController();
+    $resultData = $ArtistaController->read();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,9 +15,11 @@
     <main>
         <h1 class="titleSection">Nossos artistas</h1>
         <div class="container">
-            <div class="card">
-                <p>Alok</p>
-            </div>
+            <?php foreach($resultData as $data){ ?>
+                <div class="card">
+                    <p><?= $data->getNome() ?></p>
+                </div>
+            <?php } ?>
         </div>
     </main>
     <?php include "../includes/footer.php"; ?>

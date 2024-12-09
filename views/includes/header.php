@@ -1,3 +1,12 @@
+<?php
+    include __DIR__ . "/autoLoad.php";
+    include __DIR__ . "/../../models/User.php";
+
+    $data = null;
+    if (isset($_SESSION['User']) && is_string($_SESSION['User'])) {
+        $data = unserialize($_SESSION['User']);
+    }
+?>
 <header>
     <div class="mainHeader">
         <img src="../assets/img/iconMenu.svg" alt="Ícone de menu hambúrguer" class="menuIcon">
@@ -5,9 +14,15 @@
             <img src="../assets/img/icon-close.svg" alt="Ícone para fechar menu hambúrguer" class="closeMenuIcon">
             <div class="user">
                 <span>
-                    <a href=""><img src="../assets/img/user.jpg" alt="Imagem de perfil do usuário"></a>
+                    <a href="../Login/sair.php"><img src="../assets/img/user.jpg" alt="Imagem de perfil do usuário"></a>
                 </span>
-                <p>Olá, Maria!</p>
+                <p><?php
+                    if ($data instanceof User) {
+                        echo "Olá, " . $data->getFirstName() . "!";
+                    } else {
+                        echo "Olá!";
+                    }
+                 ?></p>
             </div>
             <nav>
                 <ul>

@@ -1,3 +1,10 @@
+<?php
+    if(isset($_GET['id']) && !empty($_GET['id'])){
+        require_once __DIR__ . '/../../controllers/EventoController.php';
+        $eventoController = new EventoController();
+        $data = $eventoController->fullInformation($_GET['id']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,16 +18,16 @@
     <main>
         <div class="imgEvent"></div>
         <div class="details">
-            <h3>Night Club - Alok and Calvin Harris</h3>
+            <h3><?= $data['evento']->getNome() ?></h3>
             <div class="info">
                 <div class="eventInfo">
                     <div>
                         <img src="../assets/img/calenderIcon.png" alt="Ícone de calendário">
-                        <p>Sábado, 19 de Outubro</p>
+                        <p id="data"><?= $data['evento']->formatDate() ?></p>
                     </div>
                     <div>
                         <img src="../assets/img/clockIcon.png" alt="Ícone de calendário">
-                        <p>23:00</p>
+                        <p id="hora"><?= $data['evento']->formatHour() ?></p>
                     </div>
                     <div>
                         <img src="../assets/img/locationicon.png" alt="Ícone de localidade">
@@ -30,31 +37,26 @@
                 <div class="ticket">
                     <div class="price">
                         <p>Ticket:</p>
-                        <h3>R$430,00</h3>
+                        <h3><?= $data['ticket']->formatPrice() ?></h3>
                     </div>
                     <div class="count">
                         <img src="../assets/img/minusIcon.png" alt="Ícone de decrementação" class="minus">
-                        <p class="number">1</p>
+                        <input id='quantity' class="number" type="number" value="1" min="1" readonly/>
                         <img src="../assets/img/plusIcon.png" alt="Ícone de incrementação" class="plus">
                     </div>
                 </div>
             </div>
             <p class="subTitle">Artistas:</p>
             <div class="artistas">
-                <div class="card">
-                    <img src="../assets/img/alok.jpg" alt="Foto artista">
-                    <div>
-                        <p class="name">Alok</p>
-                        <p class="style">Dance/Eletrônica</p>
+                <?php foreach($data['artistas'] as $artista){?>
+                    <div class="card">
+                        <img src="../assets/img/alok.jpg" alt="Foto artista">
+                        <div>
+                            <p class="name"><?= $artista->getNome() ?></p>
+                            <p class="style"><?= $artista->getEstilo() ?></p>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="../assets/img/calvinHarris.jpg" alt="Foto artista">
-                    <div>
-                        <p class="name">Calvin Harris</p>
-                        <p class="style">Dance/Eletrônica</p>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
             <div class="regras">
                 <div>
@@ -72,12 +74,12 @@
         </div>
     </main>
     <?php include "../includes/footer.php"; ?>
-    <div class="cart">
+    <div class="cart"> 
         <div class="price">
             <p>Valor Total:</p>
-            <h3>R$860,00</h3>
+            <h3><?= $data['ticket']->formatPrice() ?></h3>
         </div>
-        <a href="../Adicionais/" class="btnRed">
+        <a href="../Adicionais/?id=<?= $_GET['id'] ?>" class="btnRed" type="submit">
             Continuar
             <img src="../assets/img/arrow.svg" alt="Seta para direita">
         </a>

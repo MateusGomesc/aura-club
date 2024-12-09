@@ -80,4 +80,16 @@ class Evento{
 
         return $this;
     }
+
+    public function formatDate(){
+        $date = new DateTime($this->data);
+        $dateFormated = $date->format('d/m/Y');
+        return $dateFormated;
+    }
+
+    public function formatHour(){
+        $hour = new DateTime($this->horario);
+        $hourFormated = $hour->format('H:i');
+        return $hourFormated;
+    }
 }

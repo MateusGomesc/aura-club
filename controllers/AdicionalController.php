@@ -1,6 +1,6 @@
 <?php
 
-require_once "../models/AdicionalModel.php";
+require_once __DIR__ . "/../models/AdicionalModel.php";
 
 class AdicionalController{
     private $model;

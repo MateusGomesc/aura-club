@@ -59,4 +59,12 @@ class EventoArtistaModel{
             $_SESSION['error'] = $error->getMessage();
         }
     }
+
+    public function findAll($id){
+        $stmt = Conexao::getConn()->prepare("SELECT * FROM $this->table WHERE id_evento = ?");
+        $stmt->bindValue(1, $id);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'EventoArtista');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

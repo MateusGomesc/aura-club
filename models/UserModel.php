@@ -132,4 +132,14 @@ class UserModel{
             $_SESSION['error'] = $error->getMessage();
         }
     }
+
+    public function login(User $c)
+    {   
+        $stmt = Conexao::getConn()->prepare("SELECT * FROM $this->table WHERE email = ? AND senha = ?");
+        $stmt->bindValue(1, $c->getEmail());
+        $stmt->bindValue(2, $c->getSenha());
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

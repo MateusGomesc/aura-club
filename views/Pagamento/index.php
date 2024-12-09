@@ -11,17 +11,9 @@
         <div class="nota">
             <h3>Resumo do pedido:</h3>
             <div class="table">
-                <div class="item">
-                    <div class="name">Ticket 1</div>
-                    <div class="price">R$1180,00</div>
-                </div>
-                <div class="item">
-                    <div class="name">Ticket 2</div>
-                    <div class="price">R$1180,00</div>
-                </div>
                 <div class="total">
                     <div class="name">Total</div>
-                    <div class="price">R$2360,00</div>
+                    <div class="price"></div>
                 </div>
             </div>
         </div>
@@ -37,13 +29,6 @@
                         <p>Cartão Crédito/Débito</p>
                     </div>
                     <input type="radio" name="metodo" id="cartao" value="0">
-                </div>
-                <div class="metodo">
-                    <div>
-                        <img src="../assets/img/cardIcon.png" alt="Ícone de cartão">
-                        <p>9999 #### #### 9999</p>
-                    </div>
-                    <input type="radio" name="metodo" id="cartao" value="2">
                 </div>
                 <div class="metodo">
                     <div>

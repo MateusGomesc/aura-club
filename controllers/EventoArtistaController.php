@@ -28,4 +28,8 @@ class EventoArtistaController{
     public function remove($id){
         return $this->model->delete($id);
     }
+
+    public function findAll($id){
+        return $this->model->findAll($id);
+    }
 }

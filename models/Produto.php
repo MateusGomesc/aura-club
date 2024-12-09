@@ -42,4 +42,8 @@ class Produto{
 
         return $this;
     }
+
+    public function formatPrice(){
+        return 'R$' . number_format($this->valor, 2, ',', '.');
+    }
 }

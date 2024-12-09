@@ -222,4 +222,8 @@ class User{
 
         return $this;
     }
+
+    public function getFirstName(){
+        return explode(" ", $this->nome)[0];
+    }
 }

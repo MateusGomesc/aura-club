@@ -1,21 +1,29 @@
 <?php
   include "../includes/input.php";
-  require "../includes/modal.php";
+  include "../includes/autoLoad.php";
 
-  session_start();
+  if(isset($_POST) && count($_POST) > 0) {
 
-  // modal settings
-  $toggleModal = '';
-  $colorModal = '';
-  $info = '';
-
-  if(!empty($_SESSION['success'])){
-    $toggleModal = 'active';
-    $colorModal = 'var(--green)';
-    $info = $_SESSION['success'];
+      // Faz requisição do controlador
+      require_once "../../controllers/LoginController.php";
+      // Instancia o objeto
+      $user = new User();
+      // Monta objeto usuário
+      $user->setEmail(htmlspecialchars($_POST['email']));
+      $user->setSenha(md5($_POST['senha']));
+      // Instacia o Controlador
+      $LoginController = new LoginController();
+      // Executa método ADD
+      $rs = $LoginController->login($user);
+      // Redireciona para a INDEX
+      if ($rs) {
+          header("location: ../home");
+          exit();
+      }
+      else{
+        echo "deu errado boy";
+      }
   }
-
-  session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,7 +38,6 @@
 </head>
 
 <body>
-  <?php modal($toggleModal, $colorModal, $info) ?>
   <?php include "../includes/header.php"; ?>
   <div class="m-5">
     <div class="row align-items-center justify-content-center">
@@ -43,7 +50,8 @@
           </div>
           <!-- Coluna do formulário de login -->
           <div class="col-md-8">
-            <form class="login-form">
+            <?php FlashMessage::getMessage(); ?>
+            <form class="login-form" action="" method="post">
               <div class="mb-3">
                 <?php input('email', 'Seu email:', 'example@gmail.com', 'email'); ?>
               </div>

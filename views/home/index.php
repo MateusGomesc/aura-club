@@ -125,7 +125,7 @@
             <div class="text">
                 <h2 class="titleSectionBlue">Nossos artistas</h2>
                 <p class="subtitleSectionBlue">Conheça os Talentos que Fazem a Magia Acontecer</p>
-                <a class="btnBlue" href="">conheça-os</a>
+                <a class="btnBlue" href="../Artistas">conheça-os</a>
             </div>
             <div class="img-container">
                 <img src="../assets/img/dj.svg" alt="Dj em uma festa">

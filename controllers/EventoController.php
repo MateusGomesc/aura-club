@@ -1,6 +1,6 @@
 <?php
 
-require_once "../models/EventoModel.php";
+require_once __DIR__ . "/../models/EventoModel.php";
 
 class EventoController{
     private $model;
@@ -27,5 +27,9 @@ class EventoController{
 
     public function remove($id){
         return $this->model->delete($id);
+    }
+
+    public function fullInformation($id){
+        return $this->model->fullInformation($id);
     }
 }

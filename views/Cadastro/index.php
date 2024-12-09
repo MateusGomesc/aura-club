@@ -1,13 +1,5 @@
 <?php
     include "../includes/input.php";
-    require "../includes/modal.php";
-
-    session_start();
-
-    // modal configuration
-    $toggleModal = '';
-    $colorModal = '';
-    $info = '';
 
     if(isset($_POST) && !empty($_POST)){
         require_once "../../controllers/UserController.php";
@@ -33,18 +25,9 @@
 
         if($res){
             header('location: ../Login');
-            $_SESSION['success'] = 'Usuário criado com sucesso!';
             exit();
         }
     }
-    
-    if(!empty($_SESSION['error'])){
-        $toggleModal = 'active';
-        $colorModal = 'var(--red)';
-        $info = $_SESSION['error'];
-    }
-
-    session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -56,8 +39,6 @@
     <link rel="stylesheet" href="../assets/css/input.css">
 </head>
 <body>
-    <?php modal($toggleModal, $colorModal, $info) ?>
-    
     <?php include "../includes/header.php"; ?>
     <main>
         <!-- Coluna da logo -->
