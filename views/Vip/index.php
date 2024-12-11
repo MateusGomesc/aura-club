@@ -1,3 +1,7 @@
+<?php
+    include __DIR__ . "/../includes/autoLoad.php";
+    Security::verifyAuthentication();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,10 +13,10 @@
     <?php include "../includes/header.php"; ?>
     <main>
         <h2 class="titleSection vipColor">VIP Experience</h2>
-        <p>Seja bem-vindo (a) Maria!</p>
+        <p>Seja bem-vindo (a) <?php if($userObj instanceof User){ echo $userObj->getFirstName(); } ?>!</p>
         <div class="btnContainer">
-            <a href="" class="btnRed">Renovação</a>
-            <a href="" class="btnRed">Cancelamento</a>
+            <a href="./modificar.php/?boolean=1&id=<?php if($userObj instanceof User){ echo $userObj->getId_user(); } ?>" class="btnRed">Compra</a>
+            <a href="./modificar.php/?boolean=0&id=<?php if($userObj instanceof User){ echo $userObj->getId_user(); } ?>" class="btnRed">Cancelamento</a>
         </div>
         <div class="vipBanner">
             <div class="slideVip">

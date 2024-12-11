@@ -1,3 +1,7 @@
+<?php
+    include __DIR__ . "/../includes/autoLoad.php";
+    Security::verifyAuthentication();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,15 +15,15 @@
         <h3>Pagamento confirmado!</h3>
         <section>
             <div class="info">
-                <h3>Night Club - Alok and Calvin Harris</h3>
+                <h3></h3>
                 <div class="eventInfo">
                     <div>
                         <img src="../assets/img/calenderIcon.png" alt="Ícone de calendário">
-                        <p>Sábado, 19 de Outubro</p>
+                        <p id="data"></p>
                     </div>
                     <div>
                         <img src="../assets/img/clockIcon.png" alt="Ícone de calendário">
-                        <p>23:00</p>
+                        <p id="horario"></p>
                     </div>
                     <div>
                         <img src="../assets/img/locationicon.png" alt="Ícone de localidade">
@@ -49,5 +53,6 @@
     <?php include "../includes/footer.php"; ?>
 
     <?php include "../includes/scripts.php"; ?>
+    <script src="../assets/js/confirmacao.js"></script>
 </body>
 </html>

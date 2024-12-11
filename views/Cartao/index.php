@@ -1,5 +1,25 @@
 <?php
     include "../includes/input.php";
+    include "../includes/autoLoad.php";
+    Security::verifyAuthentication();
+    
+    if(isset($_POST) && count($_POST)){
+        require_once __DIR__ . "/../../controllers/PedidoController.php";
+
+        $pedido = new Pedido();
+        $pedido->setData(date('Y-m-d'));
+        $pedido->setValor_total(floatval($_POST['valorTotal']));
+        $pedido->setId_user(htmlspecialchars(unserialize($_SESSION['User'])->getId_user()));
+        
+        $adicionais = json_decode($_POST['adicionais'], true);
+        
+        $PedidoController = new PedidoController();
+        $res = $PedidoController->add($pedido, $adicionais, $_POST['id_produto']);
+        if($res){
+            header("location: ../Confirmacao");
+            exit();
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -12,6 +32,7 @@
 <body>
     <?php include "../includes/header.php"; ?>
     <main>
+        <?php FlashMessage::getMessage(); ?>
         <div class="cardContainer">
             <div class="card">
                 <div class="front">
@@ -60,6 +81,9 @@
             <?php
                 input('cvv', 'CVV:', '***', 'text', '3', '', '','flipCard(true)')
             ?>
+            <input type="hidden" name="adicionais" id="adicionais">
+            <input type="hidden" name="valorTotal" id="valorTotal">
+            <input type="hidden" name="id_produto" id="id_produto">
             <button class="btnRed" type="submit">Realizar pagamento</button>
         </form>
     </main>

@@ -97,3 +97,10 @@ cvv.addEventListener('input', () => {
 
     cvvCard.innerHTML = '*'.repeat(cvv.value.length)
 })
+
+// isert data on form
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#adicionais').value = sessionStorage.getItem('adicionais')
+    document.querySelector('#valorTotal').value = parseFloat(sessionStorage.getItem('valorTotal'))
+    document.querySelector('#id_produto').value = parseInt(sessionStorage.getItem('id_produto'))
+})

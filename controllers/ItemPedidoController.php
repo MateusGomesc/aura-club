@@ -1,6 +1,7 @@
 <?php
 
-require_once "../models/ItemPedidoModel.php";
+require_once __DIR__ . "/../models/ItemPedidoModel.php";
+require_once __DIR__ . "/ProdutoAdicionalController.php";
 
 class ItemPedidoController{
     private $model;

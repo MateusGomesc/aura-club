@@ -13,7 +13,13 @@ class PedidoModel{
             $stmt->bindValue(1, $pedido->getData());
             $stmt->bindValue(2, $pedido->getValor_total());
             $stmt->bindValue(3, $pedido->getId_user());
-            return $stmt->execute();
+            $stmt->execute();
+            $lastId = Conexao::getConn()->lastInsertId();
+            $stmt = Conexao::getConn()->prepare("SELECT * FROM $this->table WHERE id_pedido = ?");
+            $stmt->bindValue(1, $lastId);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Pedido');
+            $stmt->execute();
+            return $stmt->fetch();
         }
         catch(PDOException $error){
             $_SESSION['error'] = $error->getMessage();

@@ -1,4 +1,7 @@
 <?php
+    include __DIR__ . "/../includes/autoLoad.php";
+    Security::verifyAuthentication();
+    
     require_once __DIR__ . '/../../controllers/AdicionalController.php';
     $AdicionalController = new AdicionalController();
     $resultData = $AdicionalController->read();

@@ -142,4 +142,17 @@ class UserModel{
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    public function editVip($boolean, $id){
+        try{
+            $stmt = Conexao::getConn()->prepare("UPDATE $this->table SET vip = ? WHERE id_user = ?");
+            $stmt->bindValue(1, $boolean);
+            $stmt->bindValue(2, $id);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+            return $stmt->execute();
+        }
+        catch(PDOException $error){
+            $_SESSION['error'] = $error->getMessage();
+        }
+    }
 }

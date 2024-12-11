@@ -38,6 +38,7 @@ const btnContinue = document.querySelector('.btnRed')
 const name = document.querySelector('.details h3')
 const date = document.querySelector('#data')
 const hour = document.querySelector('#hora')
+const id_produto = document.querySelector('#id_produto')
 
 btnContinue.addEventListener('click', () => {
     const CartPrice = parseFloat(document.querySelector('.cart .price h3').innerHTML.replace('R$', ''))
@@ -47,6 +48,7 @@ btnContinue.addEventListener('click', () => {
     sessionStorage.setItem('date', date.innerHTML)
     sessionStorage.setItem('valorTotal', CartPrice)
     sessionStorage.setItem('ticketPrice', price)
+    sessionStorage.setItem('id_produto', id_produto.value)
     let add = []
     for(let i=0; i < count.value; i++){
         add.push({

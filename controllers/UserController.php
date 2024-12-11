@@ -95,6 +95,10 @@ class UserController{
         return $this->model->updatePassword($user);
     }
 
+    public function editVip($boolean, $id){
+        return $this->model->editVip($boolean, $id);
+    }
+
     public function findId($id){
         return $this->model->findId($id);
     }

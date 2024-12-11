@@ -39,9 +39,9 @@
 				//die();
 
 				header("Location: " . Security::pathlogin());
-				//echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=" . Security::pathlogin() . "'>";
+				echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=" . Security::pathlogin() . "'>";
 				
-				exit;
+				exit();
 			}
 		}  
 	   

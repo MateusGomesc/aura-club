@@ -20,9 +20,6 @@
           header("location: ../home");
           exit();
       }
-      else{
-        echo "deu errado boy";
-      }
   }
 ?>
 <!DOCTYPE html>

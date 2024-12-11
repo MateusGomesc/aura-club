@@ -1,5 +1,7 @@
 <?php
   include "../includes/input.php";
+  include __DIR__ . "/../includes/autoLoad.php";
+  Security::verifyAuthentication();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

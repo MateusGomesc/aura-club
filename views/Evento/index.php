@@ -2,7 +2,7 @@
     if(isset($_GET['id']) && !empty($_GET['id'])){
         require_once __DIR__ . '/../../controllers/EventoController.php';
         $eventoController = new EventoController();
-        $data = $eventoController->fullInformation($_GET['id']);
+        $eventData = $eventoController->fullInformation($_GET['id']);
     }
 ?>
 <!DOCTYPE html>
@@ -18,16 +18,16 @@
     <main>
         <div class="imgEvent"></div>
         <div class="details">
-            <h3><?= $data['evento']->getNome() ?></h3>
+            <h3><?= $eventData['evento']->getNome() ?></h3>
             <div class="info">
                 <div class="eventInfo">
                     <div>
                         <img src="../assets/img/calenderIcon.png" alt="Ícone de calendário">
-                        <p id="data"><?= $data['evento']->formatDate() ?></p>
+                        <p id="data"><?= $eventData['evento']->formatDate() ?></p>
                     </div>
                     <div>
                         <img src="../assets/img/clockIcon.png" alt="Ícone de calendário">
-                        <p id="hora"><?= $data['evento']->formatHour() ?></p>
+                        <p id="hora"><?= $eventData['evento']->formatHour() ?></p>
                     </div>
                     <div>
                         <img src="../assets/img/locationicon.png" alt="Ícone de localidade">
@@ -35,9 +35,10 @@
                     </div>
                 </div>
                 <div class="ticket">
+                    <input type="hidden" id="id_produto" name="id_produto" value="<?= $eventData['evento']->getId_produto(); ?>">
                     <div class="price">
                         <p>Ticket:</p>
-                        <h3><?= $data['ticket']->formatPrice() ?></h3>
+                        <h3><?= $eventData['ticket']->formatPrice() ?></h3>
                     </div>
                     <div class="count">
                         <img src="../assets/img/minusIcon.png" alt="Ícone de decrementação" class="minus">
@@ -48,7 +49,7 @@
             </div>
             <p class="subTitle">Artistas:</p>
             <div class="artistas">
-                <?php foreach($data['artistas'] as $artista){?>
+                <?php foreach($eventData['artistas'] as $artista){?>
                     <div class="card">
                         <img src="../assets/img/alok.jpg" alt="Foto artista">
                         <div>
@@ -77,9 +78,9 @@
     <div class="cart"> 
         <div class="price">
             <p>Valor Total:</p>
-            <h3><?= $data['ticket']->formatPrice() ?></h3>
+            <h3><?= $eventData['ticket']->formatPrice() ?></h3>
         </div>
-        <a href="../Adicionais/?id=<?= $_GET['id'] ?>" class="btnRed" type="submit">
+        <a href="../Adicionais/" class="btnRed" type="submit">
             Continuar
             <img src="../assets/img/arrow.svg" alt="Seta para direita">
         </a>

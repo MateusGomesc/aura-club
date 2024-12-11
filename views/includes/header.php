@@ -1,10 +1,7 @@
 <?php
-    include __DIR__ . "/autoLoad.php";
-    include __DIR__ . "/../../models/User.php";
-
-    $data = null;
+    $userObj = null;
     if (isset($_SESSION['User']) && is_string($_SESSION['User'])) {
-        $data = unserialize($_SESSION['User']);
+        $userObj = unserialize($_SESSION['User']);
     }
 ?>
 <header>
@@ -17,8 +14,8 @@
                     <a href="../Login/sair.php"><img src="../assets/img/user.jpg" alt="Imagem de perfil do usuário"></a>
                 </span>
                 <p><?php
-                    if ($data instanceof User) {
-                        echo "Olá, " . $data->getFirstName() . "!";
+                    if ($userObj instanceof User) {
+                        echo "Olá, " . $userObj->getFirstName() . "!";
                     } else {
                         echo "Olá!";
                     }
@@ -39,11 +36,13 @@
                         <a href="">Club Insiders</a>
                     </li>
                     <li class="vipColor">
-                        <a href="">VIP Lounge <img src="../assets/img/crown.svg" alt="Coroa de usuário VIP"></a>
+                        <a href="../Vip/">VIP Lounge <img src="../assets/img/crown.svg" alt="Coroa de usuário VIP"></a>
                     </li>
+                    <?php if($userObj instanceof User && $userObj->getAdmin()){ ?>
                     <li>
                         <a href="">Painel de controle</a>
                     </li>
+                    <?php } ?>
                 </ul>
             </nav>
         </div>

@@ -1,3 +1,7 @@
+<?php
+    include __DIR__ . "/../includes/autoLoad.php";
+    Security::verifyAuthentication();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
