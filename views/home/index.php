@@ -27,7 +27,7 @@
         <section class="vip">
             <h2 class="titleSection golden">VIP Experience</h2>
             <p class="subtitleSection">Descubra o verdadeiro significado de exclusividade</p>
-            <a class="btnGolden" href="">Seja vip</a>
+            <a class="btnGolden" href="../Vip/">Seja vip</a>
             <div class="photos">
                 <div class="bar">openbar</div>
                 <div class="food">openfood</div>

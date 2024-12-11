@@ -112,12 +112,12 @@ class UserModel{
         try{
             $sql = "UPDATE $this->table SET senha = ? WHERE id_user = ?";
             $stmt = Conexao::getConn()->prepare($sql);
-            $stmt->bindValue(1, $user->getSenha());
+            $stmt->bindValue(1, md5($user->getSenha()));
             $stmt->bindValue(2, $user->getId_user());
             return $stmt->execute();
         }
         catch(PDOException $error){
-            $_SESSION['error'] = $error->getMessage();
+            FlashMessage::setMessage('Erro ao atualizar senha', 0);
         }
     }
 
@@ -154,5 +154,13 @@ class UserModel{
         catch(PDOException $error){
             $_SESSION['error'] = $error->getMessage();
         }
+    }
+
+    public function findEmail($email){
+        $stmt = Conexao::getConn()->prepare("SELECT * FROM $this->table WHERE email = ?");
+        $stmt->bindValue(1, $email);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $stmt->execute();
+        return $stmt->fetch();
     }
 }

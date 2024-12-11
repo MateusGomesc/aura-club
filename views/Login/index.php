@@ -61,7 +61,7 @@
                 <label class="checkbox-label">
                   <input type="checkbox"> Mostrar senha
                 </label>
-                <a href="../Recuperar/" class="forgotPassword">Esqueceu sua senha?</a>
+                <a href="../Recuperar/index.php" class="forgotPassword">Esqueceu sua senha?</a>
               </div>
 
               <div class="button-group d-flex flex-wrap gap-3 justify-content-start">

@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . "/../models/UserModel.php";
-
 class UserController{
     private $model;
 
@@ -56,20 +55,20 @@ class UserController{
 
         // Email validation
         if(filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)){
-            $_SESSION['error'] = 'Email inválido!';
+            FlashMessage::setMessage("Email inválido!", 0);
             return;
         }
 
         // Number validation
         if(!$this->numberValidation($user->getTelefone())){
-            $_SESSION['error'] = 'Telefone inválido!';
+            FlashMessage::setMessage("Telefone inválido!", 0);
             return;
         }
 
         // Instagram validation
         $regex = '/^[a-zA-Z0-9](?:[a-zA-Z0-9._]{0,28}[a-zA-Z0-9])?$/';
         if(!preg_match($regex, $user->getInstagram())){
-            $_SESSION['error'] = 'Instagram inválido!';
+            FlashMessage::setMessage("Instagram inválido!", 0);
             return;
         }
 
@@ -81,13 +80,13 @@ class UserController{
 
         // Verify old password
         if(md5($oldPassword) !== $user->getSenha()){
-            $_SESSION['error'] = 'Senha antiga errada!';
+            FlashMessage::setMessage("Senha antiga inválida!", 0);
             return;
         }
 
         // Match new password
         if($newPassword !== $confirmNewPassword){
-            $_SESSION['error'] = 'Senhas novas não conferem!';
+            FlashMessage::setMessage("Senhas novas não conferem!", 0);
             return;
         }
 
@@ -101,6 +100,10 @@ class UserController{
 
     public function findId($id){
         return $this->model->findId($id);
+    }
+
+    public function findEmail($email){
+        return $this->model->findEmail($email);
     }
 
     public function remove($id){

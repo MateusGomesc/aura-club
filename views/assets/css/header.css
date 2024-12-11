@@ -6,6 +6,7 @@ header{
 header .mainHeader{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 8px 50px;
     background-color: var(--black);
 }
@@ -21,6 +22,7 @@ header .mainHeader .closeMenuIcon{
 header .mainHeader .menu{
     display: flex;
     justify-content: stretch;
+    align-items: center;
     gap: 14%;
     flex: 1;
 }
@@ -46,10 +48,11 @@ header .user span{
 
 header .user span img{
     transition: filter .5s ease;
+    width: 50px;
 }
 
 header .user span img:hover{
-    filter: brightness(.8);
+    filter: brightness(.8); 
 }
 
 header .user span a{

@@ -1,7 +1,47 @@
 <?php
   include "../includes/input.php";
   include __DIR__ . "/../includes/autoLoad.php";
-  Security::verifyAuthentication();
+
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\Exception;
+
+  require __DIR__ . '/../../vendor/autoload.php';
+  
+  if(isset($_POST['email']) && !empty($_POST['email'])){
+    require_once __DIR__ . '/../../controllers/UserController.php';
+    $UserController = new UserController();
+    $res = $UserController->findEmail($_POST['email']);
+
+    // sending welcome mail
+    $mail = new PHPMailer(true);
+
+    try{
+        // configure mail
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'auraclub.suporte@gmail.com';
+        $mail->Password = 'dfvdgdtzfhtqyeaa';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
+
+        $mail->setFrom('auraclub.suporte@gmail.com', 'Aura Club');
+        $mail->addAddress($_POST['email'], 'Cliente');
+
+        $html = "Acesse esse link para redefinir sua senha: <a href='localhost/aura-club/views/Recuperar/form.php?id=" . $res->getId_user() . "'>Clique aqui</a>";
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Redefinição de senha';
+        $mail->Body = $html;
+
+        $mail->send();
+
+        header("location: ./");
+    }
+    catch(Exception $error){
+        $_SESSION['error'] = $mail->ErrorInfo;
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,7 +71,7 @@
             <li>Siga as instruções no e-mail para criar uma nova senha.</li>
           </ol>
         </div>
-        <form class="forgot-password-form">
+        <form class="forgot-password-form" action="" method="post">
           <div class="mb-3">
             <?php input('email', 'Seu email:', 'example@gmail.com', 'email'); ?>
           </div>
