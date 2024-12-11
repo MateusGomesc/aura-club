@@ -17,7 +17,7 @@
                     if ($userObj instanceof User) {
                         echo "Olá, " . $userObj->getFirstName() . "!";
                     } else {
-                        echo "Olá!";
+                        echo "<a href='../Login'>Fazer login</a>";
                     }
                  ?></p>
             </div>
@@ -38,6 +38,11 @@
                     <li class="vipColor">
                         <a href="../Vip/">VIP Lounge <img src="../assets/img/crown.svg" alt="Coroa de usuário VIP"></a>
                     </li>
+                    <?php if($userObj instanceof User){ ?>
+                    <li>
+                        <a href="../Login/sair.php">Sair</a>
+                    </li>
+                    <?php } ?>
                     <?php if($userObj instanceof User && $userObj->getAdmin()){ ?>
                     <li>
                         <a href="">Painel de controle</a>

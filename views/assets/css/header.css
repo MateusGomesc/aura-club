@@ -61,6 +61,13 @@ header .user span a{
     align-items: center;
 }
 
+header .user p a{
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
 header .user span img{
     border-radius: 100%;
 }

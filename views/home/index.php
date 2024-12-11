@@ -1,3 +1,6 @@
+<?php
+    include "../includes/autoLoad.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
