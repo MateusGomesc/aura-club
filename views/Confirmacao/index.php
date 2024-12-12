@@ -32,20 +32,6 @@
                 </div>
             </div>
             <div class="nota">
-                <div class="table">
-                    <div class="item">
-                        <div class="name">Ticket 1</div>
-                        <div class="price">R$1180,00</div>
-                    </div>
-                    <div class="item">
-                        <div class="name">Ticket 2</div>
-                        <div class="price">R$1180,00</div>
-                    </div>
-                    <div class="total">
-                        <div class="name">Total</div>
-                        <div class="price">R$2360,00</div>
-                    </div>
-                </div>
                 <a href="../home/" class="btnRed">Voltar a Home</a>
             </div>
         </section>

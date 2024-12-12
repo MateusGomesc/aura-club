@@ -51,7 +51,6 @@
             <div class="artistas">
                 <?php foreach($eventData['artistas'] as $artista){?>
                     <div class="card">
-                        <img src="../assets/img/alok.jpg" alt="Foto artista">
                         <div>
                             <p class="name"><?= $artista->getNome() ?></p>
                             <p class="style"><?= $artista->getEstilo() ?></p>

@@ -85,11 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.cart .price h3').innerHTML = 'R$' + CartPrice.toFixed(2).replace('.', ',')
     const cardContainer = document.querySelector('.tickets')
     const quantity = sessionStorage.getItem('quantity')
+    const state = JSON.parse(sessionStorage.getItem('adicionais'))
     
     for(let i=0; i<quantity; i++){
         const card = makeCard(i)
         cardContainer.appendChild(card)
+        state[i] = '--'
     }
+    sessionStorage.setItem('adicionais', JSON.stringify(state))
 })
 
 btnContinue.addEventListener('click', () => {

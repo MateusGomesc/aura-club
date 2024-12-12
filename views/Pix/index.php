@@ -7,7 +7,7 @@
 
         $pedido = new Pedido();
         $pedido->setData(date('Y-m-d'));
-        $pedido->setValor_total(floatval($_POST['valorTotal']));
+        $pedido->setValor_total((float)$_POST['valorTotal']);
         $pedido->setId_user(htmlspecialchars(unserialize($_SESSION['User'])->getId_user()));
         
         $adicionais = json_decode($_POST['adicionais'], true);

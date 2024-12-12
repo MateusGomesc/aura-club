@@ -53,7 +53,8 @@ btnContinue.addEventListener('click', () => {
     for(let i=0; i < count.value; i++){
         add.push({
             bar: false,
-            food: false
+            food: false,
+            price: price
         })
     }
     sessionStorage.setItem('adicionais', JSON.stringify(add))

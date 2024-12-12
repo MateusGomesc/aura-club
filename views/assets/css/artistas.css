@@ -17,10 +17,6 @@
 }
 
 .card{
-    background-image: url("../img/alok.jpg");
-    background-position: center;
-    background-size: cover;
-    height: 250px;
     width: 200px;
     border-radius: 8px;
     color: var(--white);
@@ -31,7 +27,7 @@
     position: absolute;
     bottom: 0;
     background-color: var(--black-opacity);
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px;
     text-align: center;
     width: 100%;
     font-size: 20px;

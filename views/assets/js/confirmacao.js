@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.info h3').innerHTML = sessionStorage.getItem('name')
         document.querySelector('#data').innerHTML = sessionStorage.getItem('date')
         document.querySelector('#horario').innerHTML = sessionStorage.getItem('hour')
+        sessionStorage.clear();
     }
     else{
         document.querySelector('.info').style.display = 'none'
