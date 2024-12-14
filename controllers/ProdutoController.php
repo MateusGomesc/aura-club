@@ -1,6 +1,6 @@
 <?php
 
-require_once "../models/ProdutoModel.php";
+require_once __DIR__ . "/../models/ProdutoModel.php";
 
 class ProdutoController{
     private $model;
@@ -24,7 +24,7 @@ class ProdutoController{
     public function findId($id){
         return $this->model->findId($id);
     }
-
+    
     public function remove($id){
         return $this->model->delete($id);
     }

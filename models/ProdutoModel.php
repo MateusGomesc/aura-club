@@ -12,7 +12,13 @@ class ProdutoModel{
             $stmt = Conexao::getConn()->prepare($sql);
             $stmt->bindValue(1, $produto->getNome());
             $stmt->bindValue(2, $produto->getValor());
-            return $stmt->execute();
+            $stmt->execute();
+            $lastId = Conexao::getConn()->lastInsertId();
+            $stmt = Conexao::getConn()->prepare("SELECT * FROM $this->table WHERE id_produto = ?");
+            $stmt->bindValue(1, $lastId);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Produto');
+            $stmt->execute();
+            return $stmt->fetch();
         }
         catch(PDOException $error){
             $_SESSION['error'] = $error->getMessage();
@@ -40,8 +46,13 @@ class ProdutoModel{
             $stmt = Conexao::getConn()->prepare($sql);
             $stmt->bindValue(1, $produto->getNome());
             $stmt->bindValue(2, $produto->getValor());
-            $stmt->bindValue(4, $produto->getId_produto());
-            return $stmt->execute();
+            $stmt->bindValue(3, $produto->getId_produto());
+            $stmt->execute();
+            $stmt = Conexao::getConn()->prepare("SELECT * FROM $this->table WHERE id_produto = ?");
+            $stmt->bindValue(1, $produto->getId_produto());
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Produto');
+            $stmt->execute();
+            return $stmt->fetch();
         }
         catch(PDOException $error){
             $_SESSION['error'] = $error->getMessage();

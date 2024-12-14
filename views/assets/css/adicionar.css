@@ -1,0 +1,33 @@
+main{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+main h2{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+form{
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.btnRed{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+}

@@ -6,6 +6,9 @@
   use PHPMailer\PHPMailer\Exception;
 
   require __DIR__ . '/../../vendor/autoload.php';
+
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  $dotenv->load();
   
   if(isset($_POST['email']) && !empty($_POST['email'])){
     require_once __DIR__ . '/../../controllers/UserController.php';
@@ -28,7 +31,7 @@
         $mail->setFrom('auraclub.suporte@gmail.com', 'Aura Club');
         $mail->addAddress($_POST['email'], 'Cliente');
 
-        $html = "Acesse esse link para redefinir sua senha: <a href='localhost/aura-club/views/Recuperar/form.php?id=" . $res->getId_user() . "'>Clique aqui</a>";
+        $html = "Acesse esse link para redefinir sua senha: <a href='" . $_ENV['LINK'] . "/views/Recuperar/form.php?id=" . $res->getId_user() . "'>Clique aqui</a>";
 
         $mail->isHTML(true);
         $mail->Subject = 'Redefinição de senha';

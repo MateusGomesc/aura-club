@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     for(let i=0; i<quantity; i++){
         const card = makeCard(i)
         cardContainer.appendChild(card)
-        state[i] = '--'
     }
     sessionStorage.setItem('adicionais', JSON.stringify(state))
 })

@@ -19,18 +19,18 @@ class PedidoController{
 
     public function add(Pedido $pedido, $adicionais, $id_produto){
         $novo_pedido = $this->model->create($pedido);
-
+        var_dump($adicionais);
         try{
             $ProdutoAdicionalController = new ProdutoAdicionalController();
             foreach($adicionais as $adicional){
-                if($adicional['bar']){
+                if(isset($adicional['bar']) && !empty($adicional['bar'])){
                     $ProdutoAdicional = new ProdutoAdicional();
                     $ProdutoAdicional->setId_produto($id_produto);
                     $ProdutoAdicional->setId_adicionais(1);
                     $ProdutoAdicionalController->add($ProdutoAdicional);
                 }
 
-                if($adicional['food']){
+                if(isset($adicional['food']) && !empty($adicional['food'])){
                     $ProdutoAdicional = new ProdutoAdicional();
                     $ProdutoAdicional->setId_produto($id_produto);
                     $ProdutoAdicional->setId_adicionais(2);

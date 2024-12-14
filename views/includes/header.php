@@ -32,6 +32,9 @@
                     <li>
                         <a href="../Galeria/">Galeria de fotos</a>
                     </li>
+                    <li>
+                        <a href="../clubInsiders/">Club Insiders</a>
+                    </li>
                     <li class="vipColor">
                         <a href="../Vip/">VIP Lounge <img src="../assets/img/crown.svg" alt="Coroa de usuário VIP"></a>
                     </li>

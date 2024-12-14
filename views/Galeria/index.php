@@ -1,6 +1,9 @@
 <?php
     include __DIR__ . "/../includes/autoLoad.php";
     Security::verifyAuthentication();
+    require_once __DIR__ . "/../../controllers/EventoController.php";
+    $EventoController = new EventoController();
+    $resultData = $EventoController->read();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,21 +28,23 @@
         <h2 class="msg">Gostou do que viu?</h2>
         <h3 class="submsg">Participe do próximo evento!</h3>
         <div class="container">
-            <a href="../Evento/" class="card">
-                <div class="cardContent">
-                    <h6>Night Club - Alok and Calvin Harris</h6>
-                    <div class="info">
-                        <div class="item">
-                            <img src="../assets/img/calenderIcon.png" alt="Ícone de calendário">
-                            <p>Sábado, 19/10</p>
-                        </div>
-                        <div class="item">
-                            <img src="../assets/img/clockIcon.png" alt="Ícone de calendário">
-                            <p>23:00</p>
+            <?php foreach($resultData as $data){ ?>
+                <a href="../Evento/?id=<?= $data->getId_evento() ?>" class="card">
+                    <div class="cardContent">
+                        <h6><?= $data->getNome() ?></h6>
+                        <div class="info">
+                            <div class="item">
+                                <img src="../assets/img/calenderIcon.png" alt="Ícone de calendário">
+                                <p><?= $data->formatDate() ?></p>
+                            </div>
+                            <div class="item">
+                                <img src="../assets/img/clockIcon.png" alt="Ícone de calendário">
+                                <p><?= $data->formatHour() ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            <?php } ?>
         </div>
     </main>
     <?php include "../includes/footer.php" ?>
