@@ -38,6 +38,7 @@ const btnContinue = document.querySelector('.btnRed')
 const name = document.querySelector('.details h3')
 const date = document.querySelector('#data')
 const hour = document.querySelector('#hora')
+const image = document.querySelector('.imgEvent').style.backgroundImage
 const id_produto = document.querySelector('#id_produto')
 
 btnContinue.addEventListener('click', () => {
@@ -49,6 +50,7 @@ btnContinue.addEventListener('click', () => {
     sessionStorage.setItem('valorTotal', CartPrice)
     sessionStorage.setItem('ticketPrice', price)
     sessionStorage.setItem('id_produto', id_produto.value)
+    sessionStorage.setItem('image', image)
     let add = []
     for(let i=0; i < count.value; i++){
         add.push({

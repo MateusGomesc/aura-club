@@ -16,7 +16,7 @@
 <body>
     <?php include "../includes/header.php"; ?>
     <main>
-        <div class="imgEvent"></div>
+        <div class="imgEvent" style="background-image: url('<?= $eventData['evento']->getImagem(); ?>');"></div>
         <div class="details">
             <h3><?= $eventData['evento']->getNome() ?></h3>
             <div class="info">
@@ -46,17 +46,6 @@
                         <img src="../assets/img/plusIcon.png" alt="Ícone de incrementação" class="plus">
                     </div>
                 </div>
-            </div>
-            <p class="subTitle">Artistas:</p>
-            <div class="artistas">
-                <?php foreach($eventData['artistas'] as $artista){?>
-                    <div class="card">
-                        <div>
-                            <p class="name"><?= $artista->getNome() ?></p>
-                            <p class="style"><?= $artista->getEstilo() ?></p>
-                        </div>
-                    </div>
-                <?php } ?>
             </div>
             <div class="regras">
                 <div>

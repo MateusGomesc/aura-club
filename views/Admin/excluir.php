@@ -10,19 +10,19 @@ if(isset($_GET) && !empty($_GET)){
     $EventoController = new EventoController();
     
     $evento = $EventoController->findId($_GET['id']);
+    if(file_exists($evento->getImagem())){
+        unlink($evento->getImagem());
+    }
     $resProduto = $ProdutoController->remove($evento->getId_produto());
     
     if($resProduto){
         $resEvento = $EventoController->remove($_GET['id']);
         if($resEvento){
-            header("location: ../home");
+            header("location: ./");
             exit();
-        }
-        else{
-            echo "deu errado no evento";
         }
     }
     else{
-        echo "deu errado no produto";
+        echo "Deu problema no produto";
     }
 }

@@ -19,17 +19,19 @@
             <h2>Galeria de fotos</h2>
         </div>
         <div class="container">
-            <div class="foto">
-                <div class="legenda">
-                    <p>Nigth Club - Alok and Calvin Harris</p>
+            <?php foreach($resultData as $data){ ?>
+                <div class="foto" style="background-image: url('<?= $data->getImagem(); ?>');">
+                    <div class="legenda">
+                        <p><?= $data->getNome(); ?></p>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
         <h2 class="msg">Gostou do que viu?</h2>
         <h3 class="submsg">Participe do próximo evento!</h3>
         <div class="container">
             <?php foreach($resultData as $data){ ?>
-                <a href="../Evento/?id=<?= $data->getId_evento() ?>" class="card">
+                <a href="../Evento/?id=<?= $data->getId_evento() ?>" class="card" style="background-image: url('<?= $data->getImagem(); ?>');">
                     <div class="cardContent">
                         <h6><?= $data->getNome() ?></h6>
                         <div class="info">

@@ -83,6 +83,7 @@ const makeCard = (id) => {
 document.addEventListener('DOMContentLoaded', () => {
     const CartPrice = Number(sessionStorage.getItem('valorTotal'))
     document.querySelector('.cart .price h3').innerHTML = 'R$' + CartPrice.toFixed(2).replace('.', ',')
+    document.querySelector('.imgEvent').computedStyleMap.backgroundImage = sessionStorage.getItem('image')
     const cardContainer = document.querySelector('.tickets')
     const quantity = sessionStorage.getItem('quantity')
     const state = JSON.parse(sessionStorage.getItem('adicionais'))

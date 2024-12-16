@@ -9,19 +9,21 @@
 <html lang="pt-BR">
 <head>
     <?php include "../includes/head.php"; ?>
-    <title>Festas</title>
-    <link rel="stylesheet" href="../assets/css/festas.css">
+    <title>Painel de controle</title>
+    <link rel="stylesheet" href="../assets/css/painel.css">
 </head>
 <body>
     <?php include "../includes/header.php"; ?>
     <main>
-        <div class="banner">
-            <h2>Agenda de festas</h2>
+        <h2>Painel de controle</h2>
+        <div class="buttonArea">
+            <a href="adicionar.php" class="btnRed">Adicionar evento</a>
+            <a href="adicionarArtista.php" class="btnRed">Adicionar artista</a>
         </div>
-        <p>Próximas festas:</p>
         <div class="container">
             <?php foreach($resultData as $data){ ?>
-                <a href="../Evento/?id=<?= $data->getId_evento() ?>" class="card" style="background-image: url('<?= $data->getImagem(); ?>');">
+            <div class="event">
+                <div class="card" style="background-image: url('<?= $data->getImagem(); ?>');">
                     <div class="cardContent">
                         <h6><?= $data->getNome() ?></h6>
                         <div class="info">
@@ -35,27 +37,24 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
+                <div class="actions">
+                    <a href="editar.php?id=<?= $data->getId_evento() ?>" class="btnBlue">Editar</a>
+                    <button class="btnRed btnRemove" onclick="confirmation(<?= $data->getId_evento(); ?>)">Excluir</button>
+                </div>
+            </div>
             <?php } ?>
-        </div>
-        <h2 class="msg">Viva o momento, curta cada batida e deixe a diversão te encontrar!</h2>
-        <div class="breves">
-            <div class="breve" id="breve1">
-                Em breve!
-            </div>
-            <div class="breve" id="breve2">
-                Em breve!
-            </div>
-            <div class="breve" id="breve3">
-                Em breve!
-            </div>
-            <div class="breve" id="breve4">
-                Em breve!
-            </div>
         </div>
     </main>
     <?php include "../includes/footer.php"; ?>
 
     <?php include "../includes/scripts.php"; ?>
+    <script>
+        const confirmation = (id) => {
+            if(confirm('Deseja realmente excluir esse evento?')){
+                window.location.href = 'excluir.php?id=' + id
+            }
+        }
+    </script>
 </body>
 </html>

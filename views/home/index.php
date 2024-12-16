@@ -121,7 +121,7 @@
                 <h2 class="titleSection white">Club</h2>
                 <h2 class="titleSection"><span class="red">Insiders</span></h2>
                 <p class="subtitleSection white">Conecte-se com a elite da noite</p>
-                <a class="btnRed" href="#" style="opacity: .7;">Em breve!!!</a>
+                <a class="btnRed" href="../ClubInsiders/">Entre</a>
             </div>
         </section>
         <section class="artistas">

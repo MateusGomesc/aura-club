@@ -43,6 +43,20 @@
 				
 				exit();
 			}
+		}
+
+		public static function verifyAuthenticationAdmin()
+		{
+			if (!Security::GetDataSession(SessionConf::$sessionObj)->getAdmin()){
+				
+				//echo Security::pathlogin();
+				//die();
+
+				header("Location: " . Security::pathlogin());
+				echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=" . Security::pathlogin() . "'>";
+				
+				exit();
+			}
 		}  
 	   
 		public static function GetDataSession($var)

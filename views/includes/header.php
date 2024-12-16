@@ -45,7 +45,7 @@
                     <?php } ?>
                     <?php if($userObj instanceof User && $userObj->getAdmin()){ ?>
                     <li>
-                        <a href="">Painel de controle</a>
+                        <a href="../Admin/">Painel de controle</a>
                     </li>
                     <?php } ?>
                 </ul>

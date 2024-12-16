@@ -15,24 +15,16 @@
             }
         }
 
-        require_once "../../controllers/ProdutoController.php";
-        require_once "../../controllers/EventoController.php";
+        require_once "../../controllers/ArtistaController.php";
     
-        $ProdutoController = new ProdutoController();
-        $EventoController = new EventoController();
+        $ArtistaController = new ArtistaController();
 
-        $produto = new Produto();
-        $produto->setNome('Ticket');
-        $produto->setValor(htmlspecialchars($_POST['valorTicket']));
-        $ticket = $ProdutoController->add($produto);
+        $artista = new Artista();
+        $artista->setNome(htmlspecialchars($_POST['nome']));
+        $artista->setEstilo(htmlspecialchars($_POST['estilo']));
+        $artista->setImagem($caminho);
 
-        $evento = new Evento();
-        $evento->setNome(htmlspecialchars($_POST['nome']));
-        $evento->setData(htmlspecialchars($_POST['data']));
-        $evento->setImagem($caminho);
-        $evento->setHorario(htmlspecialchars($_POST['horario']));
-        $evento->setId_produto($ticket->getId_produto());
-        $res = $EventoController->add($evento);
+        $res = $ArtistaController->add($artista);
         
         if($res){
             header("location: ./");
@@ -44,7 +36,7 @@
 <html lang="pt-BR">
 <head>
     <?php include "../includes/head.php"; ?>
-    <title>Adicionar evento</title>
+    <title>Adicionar artista</title>
     <link rel="stylesheet" href="../assets/css/adicionar.css">
     <link rel="stylesheet" href="../assets/css/input.css">
 </head>
@@ -55,11 +47,9 @@
         <?php FlashMessage::getMessage(); ?>
         <form action="" method="post" enctype="multipart/form-data">
             <?php
-                input("nome", "Nome do evento:", "Digite o nome do evento");
-                input("data", "Data do evento:", '', 'date');
-                input("horario", "Horário do evento:", '', 'time');
-                input("valorTicket", "Valor do ingresso:", "Digite o valor do ingresso:", "number");
-                input("imagem", "Imagem do evento:", "", "file");
+                input("nome", "Nome do artista:", "Digite o nome do artista");
+                input("estilo", "Estilo do artista:", "Digite o estilo do artista");
+                input("imagem", "Imagem do artista:", "", "file");
             ?>
             <button type="submit" class="btnRed">Adicionar</button>
         </form>

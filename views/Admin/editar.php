@@ -1,6 +1,7 @@
 <?php
     include "../includes/input.php";
     include "../includes/autoLoad.php";
+    Security::verifyAuthentication();
     
     require_once "../../controllers/ProdutoController.php";
     require_once "../../controllers/EventoController.php";
@@ -40,7 +41,7 @@
         $res = $EventoController->edit($evento);
         
         if($res){
-            header("location: ../home");
+            header("location: ./");
             exit();
         }
     }

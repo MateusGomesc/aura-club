@@ -7,12 +7,12 @@
         </section>
         <section>
             <h4>Socialize!</h4>
-            <a href="">Club Insiders</a>
+            <a href="../ClubInsiders/">Club Insiders</a>
             <a href="../Galeria/">Galeria de fotos</a>
         </section>
         <section>
             <h4>Sinta o poder!</h4>
-            <a href="" class="vipColor">VIP lounge</a>
+            <a href="../Vip/" class="vipColor">VIP lounge</a>
         </section>
     </div>
     <div class="socialMedias">
